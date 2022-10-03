@@ -20,9 +20,12 @@
     "comp": "generate-react component",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "test:loki": "npx loki test",
+    "test:loki": "npx loki test -p 6008",
     "test:loki:ok": "npx loki approve",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static"
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +70,7 @@
     "generate-react-cli": "^7.3.0",
     "loki": "^0.30.3",
     "prop-types": "^15.8.1",
+    "reg-cli": "^0.17.7",
     "webpack": "^5.74.0"
   },
   "loki": {
