@@ -8,8 +8,8 @@ GREEN: 'green',
 BLUE: 'blue'
 }
 
-export const Button = ({theme}) => (
-  <button className={theme} data-testid="Button">
-    TEST
+export const Button = ({theme, title, onHandler}) => (
+  <button className={theme} data-testid="Button" onClick={onHandler}>
+    {title}
   </button>
 );
